@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Website{% endblock %}</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <!-- Header với thanh điều hướng -->
+    <header style="display: flex; flex-direction: column; align-items: center; background-color: #f0f0f0; padding: 10px;">
+        <nav style="display: flex; justify-content: center; gap: 20px; background-color: #f3459c; width: 100%;">
+            <a href="/" style="text-decoration: none; color: white;">Trang chủ</a>
+            <a href="/career_guidance" style="text-decoration: none; color: white;">Định hướng nghề nghiệp</a>
+            <a href="/feedback" style="text-decoration: none; color: white;">Phản hồi và đánh giá</a>
+            <a href="/qa" style="text-decoration: none; color: white;">Hỏi đáp</a>
+            <a href="/dashboard" style="text-decoration: none; color: white;">Dashboard</a>
+        </nav>
+        <!-- Logo nằm dưới thanh điều hướng -->
+        <div class="logo">
+            <img src="/static/logo.png" alt="Logo">
+        </div>
+    </header>
+
+    <!-- Nội dung chính -->
+    <main style="padding: 20px;">
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer style="background-color: #f0f0f0; text-align: center; padding: 10px; margin-top: 20px;">
+        <p>&copy; NHOM 01</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,109 @@
+{% extends "base.html" %}
+
+{% block title %}Định Hướng Nghề Nghiệp{% endblock %}
+
+{% block content %}
+<div class="container" style="text-align: center; margin-top: 50px; border: 1.5px solid #ccc; padding: 20px; border-radius: 10px; width: 80%; margin-left: auto; margin-right: auto;">
+    <h1>Định Hướng Nghề Nghiệp</h1>
+    <p>Ấn vào nút "Start" bên dưới để bắt đầu bài kiểm tra tính cách MBTI</p>
+    <form action="{{ url_for('mini_test') }}" method="GET">
+        <button type="submit" style="padding: 10px 20px; font-size: 18px;">Start</button>
+    </form>
+</div>
+
+<div class="container">
+    <h1> I.TIÊU CHÍ  TRONG TRẮC NGHIỆM  MBTI </h1>
+    <p>Theo nghiên cứu, có 4 tiêu chí quan trọng làm nên các nhóm tính cách qua trắc nghiệm MBTI test:<br>
+        <ul>
+            <li> Tìm hiểu và nhận thức về thế giới: Sensing (Giác quan) / iNtuition (Trực giác) </li>
+            <li> Cách quyết định và lựa chọn: Thinking (Lý trí) / Feeling (Cảm xúc)</li>
+            <li> Cách thức để hành động: Judging (Nguyên tắc) / Perceiving (Linh hoạt)</li>
+            <li> Xu hướng tự nhiên: Extraversion (Hướng ngoại) / Introversion (Hướng nội)</li>
+        </ul>
+
+    </p>
+    <img src="{{ url_for('static', filename='9-cach-doc-bieu-do-disc.jpg') }}" alt="mbti" class="responsive-img" />
+    <h1>II. TRẮC NGHIỆM MBTI DÙNG ĐỂ LÀM GÌ ?</h1>
+    <img src="{{ url_for('static', filename='chu-y.webp') }}" alt="mbti" class="responsive-img"  />
+    <h2> 2.1 Trắc nghiệm tính cách bản thân định hướng nghề nghiệp phù hợp</h2>
+    <p>
+        Kết quả trắc nghiệm tính cách bản thân MBTI test được phát triển để định hướng nghề nghiệp và đây là tổng hợp các lĩnh vực phù hợp tương ứng với <br>
+        16 nhóm tính cách MBTI.<br>
+        <img src="{{ url_for('static', filename='16-nhom-tinh-cach.jpg') }}" alt="mbti" class="responsive-img" />
+        <ul>
+            <li>
+                ENFJ – Người cho đi/ Người chỉ dạy: Nhóm người này phù hợp trong môi trường có sự giao tiếp, thấu hiểu người khác như Giáo viên, Cố vấn/<br>
+                Chuyên gia tư vấn, Nhà ngoại giao, Nhân viên xã hội, Nhà tâm lý, Tổ chức sự kiện, Quản lý nhân sự, Nhà văn…
+            </li>
+            <li>
+                ENFP – Người truyền cảm hứng / Người dẫn dắt: Họ có thể tỏa sáng với công việc đòi hỏi ý tưởng thú vị như Doanh nhân, Nhà báo, Nhà nghiên<br>
+                cứu, Lập trình viên, Nhà phân tích, Phóng viên…
+            </li>
+            <li>
+                ENTJ – Người điều hành: Họ rất hợp với công việc liên quan đến tổ chức và lãnh đạo như Giám đốc điều hành, Giáo viên, Giám khảo, Doanh <br>
+                nhân.
+            </li>
+            <li>
+                ENTP – Người có tầm nhìn xa: Tuýp người này phù hợp làm trong nhiều lĩnh vực mà nhất là công việc có thể tự do theo đuổi sự sáng tạo như Cố<br>
+                vấn, Nhà khoa học, Nhiếp ảnh gia, Diễn viên, Nhà tiếp thị, Luật sư, Doanh nhân…
+            </li>
+            <li>
+                ESFJ – Người vị tha/ Người quan tâm: Những người làm bài trắc nghiệm MBTI test thuộc nhóm người này sẽ làm tốt các công việc liên quan đến<br>
+                việc duy trì trật tự và cấu trúc.
+            </li>
+            <li>
+                ESFP – Người trình diễn: Họ phù hợp với công việc liên quan đến sử dụng kỹ năng giao tiếp tiếp bởi đây là thế mạnh tuyệt vời của họ, đồng thời họ<br>
+                cũng không thích bó buộc bởi các lý thuyết.
+            </li>
+            <li>
+                ESTJ – Người giám hộ/ Người giám sát: Nhóm người này thích hợp với công việc liên quan đến việc thiết lập trật tự và cấu trúc.<br>
+            </li>
+            <li>
+                ESTP – Người thực thi: Họ phù hợp với vai trò cần sự tư duy nhanh chóng, không có sự quy định phức tạp nào.
+            </li>
+            <li>
+                INFJ – Người cố vấn: Các công việc liên quan đến sứ mệnh và tạo ra điều gì đó ý nghĩa sẽ thích hợp với nhóm người này.
+            </li>
+            <li>
+                INFP – Người duy tâm: Họ sẽ dễ thành công trong công việc mang lại nhiều điều tốt đẹp cho nhân loại như Nhạc sĩ, Nhà văn, Nhà thơ…
+            </li>
+            <li>
+                INTJ Nhà khoa học: Sự nghiệp của những người thuộc INTJ thường gắn với công việc có tư duy độc lập.
+            </li>
+            <li>
+                INTP – Nhà tư duy: Họ phù hợp với con đường sự nghiệp liên quan đến tìm kiếm và phân tích các nguyên tắc, ý tưởng trong một môi trường độc<br>
+                lập.
+            </li>
+            <li>
+                ISFJ – Người nuôi dưỡng: Nhóm người này nên chọn công việc liên quan đến việc quan sát, tổ chức và chăm sóc người khác.
+            </li>
+            <li>
+                ISFP – Người nghệ sĩ: Những công việc liên quan đến nghệ thuật hầu hết đều hợp với nhóm tính cách ISFP.
+            </li>
+            <li>
+                ISTJ – Người trách nhiệm: Họ sẽ phát huy tốt khả năng của mình với những công việc liên quan đến quyền hạn, bảo mật…
+            </li>
+            <li>
+                ISTP – Nhà cơ học: Họ phù hợp làm việc tại môi trường có tính linh loạt, nơi mà họ áp dụng các kỹ năng để giải quyết vấn đề thực tế.
+
+            </li>
+            
+        </ul>
+
+    </p>
+    <h2> 2.2 Tuyển dụng và quản lý nhân sự, xây dựng văn hóa doanh nghiệp</h2>
+    <p>
+        Không chỉ tác động đến cá nhân, bài trắc nghiệm MBTI test hiện nay còn được các doanh nghiệp sử dụng như một công cụ để quản trị nhân sự.<br>
+        <ul>
+            <li>Tuyển dụng nhân sự: Đánh giá ứng viên có phù hợp với môi trường và tổ chức hay không.</li>
+            <li>Quản trị nhân sự: Phân bổ vị trí, nhiệm vụ hợp lý cho mỗi cá nhân dựa trên tính cách của họ nhằm phát huy tối đa năng lực và giảm thiểu xung đột<br>
+                 giữa các thành viên trong môi trường tập thể.<br>
+            </li>
+            <li>
+                Tạo nên văn hóa doanh nghiệp: Đưa ra mô hình liên kết giữa các nhóm tính cách để xây dựng văn hóa tập thể phù hợp cho tất cả mọi người, <br>
+                truyền cảm hứng cho nhân viên.
+            </li>
+        </ul>
+    </p>    
+</div>
+{% endblock %}

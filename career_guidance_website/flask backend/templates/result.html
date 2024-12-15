@@ -1,0 +1,131 @@
+{% extends "base.html" %}
+
+{% block title %}Kết Quả Định Hướng Nghề Nghiệp{% endblock %}
+
+{% block content %}
+<div class="result-container">
+    <h1>Kết Quả Định Hướng Nghề Nghiệp</h1>
+
+    <!-- Hiển thị loại tính cách MBTI -->
+    <div class="result-summary">
+        <h2>Loại tính cách của bạn:</h2>
+        <p><strong>{{ result.mbti_type if result.mbti_type else "Không xác định" }}</strong></p>
+    </div>
+
+    <!-- Hiển thị ngành nghề phù hợp -->
+    <div class="career-suggestions">
+        <h2>Ngành nghề phù hợp:</h2>
+        {% if result.careers %}
+            <ul>
+                {% for career in result.careers %}
+                    <li>{{ career }}</li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>Không tìm thấy ngành nghề phù hợp.</p>
+        {% endif %}
+    </div>
+
+    <!-- Hiển thị ngành học phù hợp -->
+    <div class="major-suggestions">
+        <h2>Ngành học phù hợp:</h2>
+        {% if result.majors %}
+            <ul>
+                {% for major in result.majors %}
+                    <li>{{ major }}</li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>Không tìm thấy ngành học phù hợp.</p>
+        {% endif %}
+    </div>
+
+    <!-- Hiển thị trường đại học phù hợp -->
+    <div class="university-matching">
+        <h2>Trường đại học phù hợp:</h2>
+        {% if result.suitable_schools %}
+            <ul>
+                {% for school in result.suitable_schools %}
+                    <li>
+                        <strong>{{ school.name }}</strong>
+                        {% if school.majors %}<br>Ngành học: {{ school.majors }}{% endif %}
+                        {% if school.tuition %}<br>Học phí: {{ school.tuition }}{% endif %}
+                        {% if school.region %}<br>Khu vực: {{ school.region }}{% endif %}
+                    </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>Không tìm thấy trường đại học phù hợp.</p>
+        {% endif %}
+    </div>
+
+    <!-- Nút quay lại -->
+    <div class="return-button">
+        <a href="/" class="btn">Quay lại Trang chủ</a>
+    </div>
+</div>
+
+<!-- CSS nội tuyến để cải thiện giao diện -->
+<style>
+.result-container {
+    width: 90%;
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: left;
+    font-family: Arial, sans-serif;
+}
+
+.result-container h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.result-summary, .career-suggestions, .major-suggestions, .university-matching {
+    margin-bottom: 20px;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+}
+
+.result-summary p, .career-suggestions ul, .major-suggestions ul, .university-matching ul {
+    margin-top: 10px;
+}
+
+.career-suggestions ul, .major-suggestions ul, .university-matching ul {
+    list-style: none;
+    padding: 0;
+}
+
+.career-suggestions li, .major-suggestions li, .university-matching li {
+    background: #e6f7ff;
+    margin: 5px 0;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.return-button {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.return-button .btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #4caf50;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.return-button .btn:hover {
+    background-color: #45a049;
+}
+</style>
+{% endblock %}

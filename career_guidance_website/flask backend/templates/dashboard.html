@@ -1,0 +1,146 @@
+{% extends "base.html" %}
+
+{% block title %}Dashboard Thống Kê{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <h1 class="page-title">Dashboard Thống Kê</h1>
+
+        <!-- Tổng số người dùng -->
+        <div class="stat-box">
+            <h2>Tổng số người dùng:</h2>
+            <p class="stat-value">{{ total_users }}</p>
+        </div>
+
+        <!-- Thống kê MBTI phổ biến -->
+        <div class="stat-box">
+            <h3>Loại MBTI phổ biến:</h3>
+            <ul class="stat-list">
+                {% for mbti, count in mbti_stats.items() %}
+                    <li>{{ mbti }}: <strong>{{ count }} người</strong></li>
+                {% endfor %}
+            </ul>
+        </div>
+
+        <!-- Thống kê ngành nghề phổ biến -->
+        <div class="stat-box">
+            <h3>Ngành nghề phổ biến:</h3>
+            <ul class="stat-list">
+                {% for career, count in career_stats.items() %}
+                    <li>{{ career }}: <strong>{{ count }} người chọn</strong></li>
+                {% endfor %}
+            </ul>
+        </div>
+
+        <!-- Danh sách người dùng -->
+        <div class="user-list">
+            <h3>Danh sách người dùng:</h3>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Tên</th>
+                        <th>Tuổi</th>
+                        <th>Loại MBTI</th>
+                        <th>Ngành nghề phù hợp</th>
+                        <th>Ngành học phù hợp</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for user in results %}
+                        <tr>
+                            <td>{{ user.get('name', 'Không rõ') }}</td>
+                            <td>{{ user.get('age', 'Không rõ') }}</td>
+                            <td>{{ user.get('mbti_type', 'Không rõ') }}</td>
+                            <td>{{ ", ".join(user.get('careers', [])) }}</td>
+                            <td>{{ ", ".join(user.get('majors', [])) }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <style>
+        /* Các kiểu chung */
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            font-family: Arial, sans-serif;
+            padding-top: 20px;
+        }
+        
+        .page-title {
+            font-size: 2em;
+            color: #333;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .stat-box {
+            background-color:rgb(247, 244, 244);
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .stat-box h2, .stat-box h3 {
+            margin: 0;
+            font-size: 1.5em;
+            color: #333;
+        }
+
+        .stat-value {
+            font-size: 1.8em;
+            font-weight: bold;
+            color:rgb(172, 51, 209);
+        }
+
+        .stat-list {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .stat-list li {
+            font-size: 1.2em;
+            margin: 5px 0;
+        }
+
+        .user-list {
+            margin-top: 30px;
+        }
+
+        /* Cải thiện bảng */
+        .table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+
+        .table th, .table td {
+            padding: 12px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+
+        .table th {
+            background-color:rgb(195, 247, 193);
+            color: #333;
+        }
+
+        .table td {
+            font-size: 1.1em;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                width: 95%;
+            }
+
+            .table th, .table td {
+                padding: 10px;
+            }
+        }
+    </style>
+{% endblock %}

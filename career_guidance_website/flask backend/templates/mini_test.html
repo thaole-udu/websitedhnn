@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block title %}Bài Test MBTI{% endblock %}
+
+{% block content %}
+
+<div class="test-container">
+    <h1>Bài Kiểm Tra MBTI</h1>
+    <form method="POST" action="/mini_test">
+        <div class="questions-container">
+            {% for question in questions %}
+                <div class="question-item">
+                    <p>{{ question.question }}</p>
+                    <label>
+                        <input type="radio" name="answer_{{ loop.index }}" value="a" required> {{ question.a }}
+                    </label><br>
+                    <label>
+                        <input type="radio" name="answer_{{ loop.index }}" value="b"> {{ question.b }}
+                    </label>
+                </div>
+            {% endfor %}
+        </div>
+        <button type="submit">Gửi Bài Làm</button>
+    </form>
+</div>
+
+{% endblock %}
